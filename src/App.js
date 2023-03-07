@@ -1,25 +1,44 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Data from './data/users.json';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <table className='table_style'>
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>DOB</th>
+            <th>Country</th>
+        </tr>
+         {
+            Data.map((val,key) =>{
+               return (
+                <tr key={key}>
+                    <td>{val.id}</td>
+                    <td>{val.username}</td>
+                    <td>{val.first_name}</td>
+                    <td>{val.last_name}</td>
+                    <td>{val.email}</td>
+                    <td>{val.dob}</td>
+                    <td>{val.gender}</td>
+                    <td>{val.country}</td>
+                </tr>
+               )
+            })
+         }
+        
+     </table>
+
     </div>
   );
 }
+
+
 
 export default App;
