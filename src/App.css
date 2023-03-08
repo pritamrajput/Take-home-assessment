@@ -1,10 +1,17 @@
 .App {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
   background-color: #333;
   width: 100vw;
   height: 100%;
   padding: 50px 20px;
+}
+.search{
+  width: 300px;
+  padding: 10px 20px;
 }
 .table_style{
   color: aliceblue;
@@ -46,6 +53,18 @@ table{
 
 .back{
   background-color: #61dafb;
+}
+
+.pagination{
+  padding:10px;
+  margin:  15px 0;
+  display: flex;
+  justify-content: center;
+}
+.pagination > span{
+  padding: 15px 20px;
+  border: 1px solid gray;
+  cursor: pointer;
 }
 
 @keyframes App-logo-spin {
