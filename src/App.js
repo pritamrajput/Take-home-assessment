@@ -5,12 +5,7 @@ import Data from './data/users.json';
 function App() {
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
-
-  const selectPageHandler = (selectedPage)=>{
-    setPage(selectedPage);
-  };
-
- 
+  
 
   return (
     <div className="App">
@@ -19,13 +14,13 @@ function App() {
      <tbody>
         <tr>
             <th>ID</th>
-            <th>Username</th>
-            <th>Firstname</th>
-            <th>Lastname</th>
-            <th>Email</th>
-            <th>Gender</th>
-            <th>DOB</th>
-            <th>Country</th>
+            <th>Username<div className='btngroup'><button onClick={sortByUsername}>↑</button><button>↓</button></div></th>
+            <th>Firstname<div className='btngroup'><button>↑</button><button>↓</button></div></th>
+            <th>Lastname<div className='btngroup'><button>↑</button><button>↓</button></div></th>
+            <th>Email<div className='btngroup'><button>↑</button><button>↓</button></div></th>
+            <th>Gender<div className='btngroup'><button>↑</button><button>↓</button></div></th>
+            <th>DOB<div className='btngroup'><button>↑</button><button>↓</button></div></th>
+            <th>Country<div className='btngroup'><button>↑</button><button>↓</button></div></th>
         </tr>
          {
             Data.filter(user=>user.first_name.toLowerCase().includes(query)).slice(page*10-10,page*10).map((val,key) =>{
@@ -48,13 +43,9 @@ function App() {
      </table>
      
      <div className="pagination">
-      <span>⬅️</span>
-      {
-        [...Array(Data.length / 50)].map((_,i) =>{
-          return <span onClick={()=>selectPageHandler(i+1)}>{i+1}</span>
-        })
-      }
-      <span onClick={()=>nextTenEntries}>➡️</span>
+      <span onClick={()=>selectPageHandler(page-1)}>⬅️</span>
+      <span onClick={()=>selectPageHandler(page)}>{(page)}</span>
+      <span onClick={()=>selectPageHandler(page+1)}>➡️</span>
      </div>
 
     </div>
