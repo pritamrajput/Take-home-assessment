@@ -5,6 +5,7 @@ import Data from './data/users.json';
 function App() {
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
+  const [sorting, setSorting] = useState("");
   
 
   return (
